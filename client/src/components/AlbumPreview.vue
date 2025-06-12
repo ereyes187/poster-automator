@@ -43,7 +43,9 @@ const props = defineProps<{
       <h1 class="line-clamp-2 text-lg font-bold text-neutral-800">
         {{ props.album.name }}
       </h1>
-      <p class="text-sm">{{ props.album.artists[0].name }}</p>
+      <p class="text-sm">
+        {{ props.album.artists[0].name }}
+      </p>
     </hgroup>
   </div>
 </template>
