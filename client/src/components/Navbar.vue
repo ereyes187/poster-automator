@@ -26,13 +26,24 @@ const toggleMenu = (e: MouseEvent) => {
         </div>
         <div class="flex flex-1 md:items-stretch md:justify-start">
           <div class="flex shrink-0 items-center">
-            <ViniLogo />
+            <RouterLink to="/">
+              <ViniLogo />
+            </RouterLink>
           </div>
           <div class="hidden content-center sm:ml-6 md:block">
             <div class="flex space-x-4">
-              <a href="#" class="navLinks" aria-current="page"> Home </a>
-              <a href="#" class="navLinks"> About </a>
-              <a href="#" class="navLinks"> Contact </a>
+              <RouterLink
+                active-class="font-bold text-neutral-800"
+                class="navLinks"
+                to="/"
+                >Home</RouterLink
+              >
+              <RouterLink
+                active-class="font-bold text-neutral-800"
+                class="navLinks"
+                to="/contact"
+                >Contact</RouterLink
+              >
             </div>
           </div>
         </div>
@@ -43,9 +54,18 @@ const toggleMenu = (e: MouseEvent) => {
       id="mobile-menu"
       :class="{ block: isMenuOpen, hidden: !isMenuOpen }"
     >
-      <a href="#" class="navButtons" aria-current="page"> Home </a>
-      <a href="#" class="navButtons"> About </a>
-      <a href="#" class="navButtons"> Contact </a>
+      <RouterLink
+        active-class="font-bold text-neutral-800"
+        class="navButtons"
+        to="/"
+        >Home</RouterLink
+      >
+      <RouterLink
+        active-class="font-bold text-neutral-800"
+        class="navButtons"
+        to="/contact"
+        >Contact</RouterLink
+      >
     </div>
   </nav>
 </template>
