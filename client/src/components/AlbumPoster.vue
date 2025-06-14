@@ -132,15 +132,17 @@ function getReadableTextColor(r: number, g: number, b: number) {
       </div>
     </div>
   </div>
-  <label for="minmax-range" class="mt-2 block text-sm font-medium"
-    >Text Size</label
-  >
-  <input
-    id="minmax-range"
-    type="range"
-    min="6"
-    max="14"
-    v-model="textSize"
-    class="h-2 w-full max-w-lg cursor-pointer rounded-lg bg-gray-200 accent-neutral-800"
-  />
+  <div class="py-6">
+    <label for="minmax-range" class="block text-sm font-medium"
+      >Text Size</label
+    >
+    <input
+      id="minmax-range"
+      type="range"
+      min="6"
+      max="14"
+      v-model="textSize"
+      class="h-2 w-full max-w-lg cursor-pointer rounded-lg bg-gray-200 accent-neutral-800"
+    />
+  </div>
 </template>
