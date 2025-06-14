@@ -27,6 +27,7 @@ api.use(async (req, res, next) => {
     });
 
     const data = await response.json();
+    console.log("Spotify token response:", data);
 
     if (data.access_token) {
       req.access_token = data.access_token;
@@ -35,6 +36,7 @@ api.use(async (req, res, next) => {
       res.status(response.status).json(response.message);
     }
   } catch (error) {
+    console.error("Middleware error:", error);
     res.status(500).json({ error: "Failed to fetch access token" });
   }
 });
@@ -70,12 +72,14 @@ api.get("/search-albums", async (req, res) => {
     );
 
     if (!response.ok) {
+      console.error("Response not ok for search-albums:", error);
       return res.status(response.status).json({ error: response.message });
     }
 
     const data = await response.json();
     res.status(200).json(data.albums.items);
   } catch (error) {
+    console.error("Response failed for search-albums:", error);
     res.status(500).json({ error: "Failed to fetch albums" });
   }
 });
