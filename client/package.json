@@ -15,7 +15,9 @@
     "axios": "^1.8.1",
     "colorthief": "^2.6.0",
     "vue": "^3.5.13",
-    "vue-carousel": "^0.18.0"
+    "vue-carousel": "^0.18.0",
+    "vue-router": "^4.5.1",
+    "vue3-carousel": "^0.16.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
