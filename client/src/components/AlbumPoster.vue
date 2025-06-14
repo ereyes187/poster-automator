@@ -7,12 +7,16 @@ const props = defineProps<{
   album: AlbumObject;
 }>();
 
+// Design Ideas
+// Get Track's Audio Analyis and display tracks as soundwaves. Requires research
+
 let albumLength = ref<string>();
 let image = ref<HTMLImageElement>();
 let primaryColor = ref<string>();
 let secondaryColor = ref<string>();
 let tertiaryColor = ref<string>();
 let readableTextColor = ref<string>();
+let textSize = ref<number>(10);
 
 watchEffect(() => {
   let totalMinutes = 0;
@@ -104,7 +108,10 @@ function getReadableTextColor(r: number, g: number, b: number) {
       class="mx-auto h-1 w-[94%] rounded-sm border-0"
       :style="{ backgroundColor: readableTextColor }"
     />
-    <div class="space-between flex max-h-56 min-h-56 px-6 py-4 text-[10px]">
+    <div
+      class="space-between flex max-h-56 min-h-56 px-6 py-4"
+      :style="{ fontSize: textSize + 'px' }"
+    >
       <ol class="flex flex-grow flex-col flex-wrap">
         <li
           v-for="(song, index) in props.album.tracks.items"
@@ -125,4 +132,15 @@ function getReadableTextColor(r: number, g: number, b: number) {
       </div>
     </div>
   </div>
+  <label for="minmax-range" class="mt-2 block text-sm font-medium"
+    >Text Size</label
+  >
+  <input
+    id="minmax-range"
+    type="range"
+    min="6"
+    max="14"
+    v-model="textSize"
+    class="h-2 w-full max-w-lg cursor-pointer rounded-lg bg-gray-200 accent-neutral-800"
+  />
 </template>

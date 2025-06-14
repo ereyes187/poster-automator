@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ViniLogo from "./icons/Vini.vue";
+import MenuIcon from "./icons/Menu.vue";
 
 const isMenuOpen = ref<boolean>(false);
 
@@ -16,70 +18,15 @@ const toggleMenu = (e: MouseEvent) => {
           <button
             @click="toggleMenu"
             type="button"
-            class="focus:outline-hidden relative inline-flex items-center justify-center rounded-md p-2 text-neutral-800"
             aria-controls="mobile-menu"
             aria-expanded="false"
           >
-            <svg
-              :class="{ block: !isMenuOpen, hidden: isMenuOpen }"
-              class="size-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-            <svg
-              :class="{ block: isMenuOpen, hidden: !isMenuOpen }"
-              class="size-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              data-slot="icon"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
+            <MenuIcon :isMenuOpen="isMenuOpen" />
           </button>
         </div>
         <div class="flex flex-1 md:items-stretch md:justify-start">
           <div class="flex shrink-0 items-center">
-            <svg
-              class="w-18 h-auto cursor-pointer"
-              width="150"
-              height="64"
-              viewBox="0 0 150 64"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <text
-                x="50%"
-                y="55%"
-                text-anchor="middle"
-                fill="black"
-                audley
-                font-size="40"
-                font-weight="bold"
-                letter-spacing="2.5"
-                font-family="Cookie"
-                dy=".2em"
-              >
-                <!-- Arizonia, Allura, Caramel, Smooch, Style Script, Pattaya, 
-            Cookie, Lily Script One, Yellowtail -->
-                Vini
-              </text>
-            </svg>
+            <ViniLogo />
           </div>
           <div class="hidden content-center sm:ml-6 md:block">
             <div class="flex space-x-4">

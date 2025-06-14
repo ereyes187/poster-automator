@@ -77,7 +77,6 @@ app.get("/search-albums", async (req, res) => {
     const data = await response.json();
     res.status(200).json(data.albums.items);
   } catch (error) {
-    console.error(error.message);
     res.status(500).json({ error: "Failed to fetch albums" });
   }
 });
