@@ -1,17 +1,18 @@
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
-import express from "express";
+import express, { Router } from "express";
 import cors from "cors";
 import serverless from "serverless-http";
 
 const api = express();
+const router = Router();
 
 api.use(express.urlencoded({ extended: true }));
 api.use(express.json());
 api.use(cors());
 
-api.use(async (req, res, next) => {
+router.use(async (req, res, next) => {
   try {
     const response = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
@@ -36,7 +37,6 @@ api.use(async (req, res, next) => {
       res.status(response.status).json(response.message);
     }
   } catch (error) {
-    console.error("Middleware error:", error);
     res.status(500).json({ error: "Failed to fetch access token" });
   }
 });
@@ -57,7 +57,7 @@ api.use(async (req, res, next) => {
 //   return data.access_token;
 // }
 
-api.get("/search-albums", async (req, res) => {
+router.get("/search-albums", async (req, res) => {
   try {
     console.log(req.query.input);
     const query = req.query.input;
@@ -84,7 +84,7 @@ api.get("/search-albums", async (req, res) => {
   }
 });
 
-api.get("/fetch-album/:id", async (req, res) => {
+router.get("/fetch-album/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -108,5 +108,7 @@ api.get("/fetch-album/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch album" });
   }
 });
+
+api.use("/api/", router);
 
 export const handler = serverless(api);

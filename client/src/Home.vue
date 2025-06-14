@@ -22,12 +22,9 @@ const fetchSpotifyData = async () => {
     albumQuery.value !== previousQuery.value
   ) {
     try {
-      const response = await axios.get<AlbumObject[]>(
-        "/.netlify/functions/api/search-albums",
-        {
-          params: { input: albumQuery.value },
-        },
-      );
+      const response = await axios.get<AlbumObject[]>("/api/search-albums", {
+        params: { input: albumQuery.value },
+      });
       results.value = response.data;
       error.value = false;
     } catch (err) {
