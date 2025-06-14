@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Navbar from "@/components/Navbar.vue";
-import SpotifyIcon from "./components/icons/Spotify.vue";
+import SpotifyIcon from "@/components/icons/Spotify.vue";
 </script>
 
 <template>

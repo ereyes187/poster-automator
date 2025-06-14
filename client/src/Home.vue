@@ -2,11 +2,11 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import type { AlbumObject } from "@/interfaces";
-import AlbumPreview from "./components/AlbumPreview.vue";
-import AlbumPoster from "./components/AlbumPoster.vue";
-import SearchIcon from "./components/icons/Search.vue";
-import ChevronLeft from "./components/icons/ChevronLeft.vue";
-import Carousel from "./components/Carousel.vue";
+import AlbumPreview from "@/components/AlbumPreview.vue";
+import AlbumPoster from "@/components/AlbumPoster.vue";
+import SearchIcon from "@/components/icons/Search.vue";
+import ChevronLeft from "@/components/icons/ChevronLeft.vue";
+import Carousel from "@/components/Carousel.vue";
 
 const albumQuery = ref<string>("");
 const previousQuery = ref<string>("");
@@ -96,7 +96,7 @@ onMounted(() => {
     </p>
   </section>
 
-  <section v-if="!previousQuery" class="mx-auto max-w-7xl">
+  <section v-if="!previousQuery && !error" class="mx-auto max-w-7xl">
     <Carousel />
   </section>
 
