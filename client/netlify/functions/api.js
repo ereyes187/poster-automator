@@ -3,6 +3,7 @@ const client_secret = process.env.CLIENT_SECRET;
 
 import express from "express";
 import cors from "cors";
+import serverless from "serverless-http";
 
 const api = express();
 
