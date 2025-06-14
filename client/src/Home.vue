@@ -23,7 +23,7 @@ const fetchSpotifyData = async () => {
   ) {
     try {
       const response = await axios.get<AlbumObject[]>(
-        "http://localhost:3001/search-albums",
+        "/.netlify/functions/api/search-albums",
         {
           params: { input: albumQuery.value },
         },
