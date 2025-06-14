@@ -28,7 +28,6 @@ router.use(async (req, res, next) => {
     });
 
     const data = await response.json();
-    console.log("Spotify token response:", data);
 
     if (data.access_token) {
       req.access_token = data.access_token;
@@ -59,7 +58,6 @@ router.use(async (req, res, next) => {
 
 router.get("/search-albums", async (req, res) => {
   try {
-    console.log(req.query.input);
     const query = req.query.input;
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=${query}&type=album&market=US`,
@@ -72,14 +70,12 @@ router.get("/search-albums", async (req, res) => {
     );
 
     if (!response.ok) {
-      console.error("Response not ok for search-albums:", error);
       return res.status(response.status).json({ error: response.message });
     }
 
     const data = await response.json();
     res.status(200).json(data.albums.items);
   } catch (error) {
-    console.error("Response failed for search-albums:", error);
     res.status(500).json({ error: "Failed to fetch albums" });
   }
 });
