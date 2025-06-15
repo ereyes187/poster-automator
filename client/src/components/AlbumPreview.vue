@@ -10,7 +10,7 @@ const emit = defineEmits<{
 const fetchAlbumDetails = async () => {
   try {
     const response = await axios.get<AlbumObject>(
-      `http://localhost:3001/fetch-album/${props.album.id}`,
+      `/api/fetch-album/${props.album.id}`,
     );
     const album = response.data as AlbumObject;
     emit("album-details-fetched", album);

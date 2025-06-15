@@ -26,7 +26,7 @@ import MyProfile from "@/assets/images/MyProfile.jpeg";
         </p>
       </div>
     </section>
-    <section class="mt-10 flex items-center justify-center gap-8">
+    <section class="flex items-center justify-center gap-8 py-10">
       <a
         target="_blank"
         rel="noopener noreferrer"
