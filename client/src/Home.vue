@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import axios from "axios";
 import type { AlbumObject } from "@/interfaces";
 import AlbumPreview from "@/components/AlbumPreview.vue";
@@ -13,8 +13,6 @@ const previousQuery = ref<string>("");
 const results = ref<AlbumObject[]>([]);
 const error = ref<boolean>(false);
 const selectedAlbum = ref<AlbumObject>();
-
-const isVisible = ref(false);
 
 const fetchSpotifyData = async () => {
   if (
@@ -43,18 +41,14 @@ const setSelectedAlbum = (album: AlbumObject) => {
 const deselectAlbum = () => {
   selectedAlbum.value = undefined;
 };
-
-onMounted(() => {
-  setTimeout(() => {
-    isVisible.value = true;
-  }, 100);
-});
 </script>
 
 <template>
   <section v-if="!selectedAlbum">
     <hgroup>
-      <h1 class="bg-clip-text pb-2 text-6xl font-extrabold text-neutral-800">
+      <h1
+        class="bg-clip-text pb-2 text-4xl font-extrabold text-neutral-800 md:text-6xl"
+      >
         Poster Automator
       </h1>
       <p class="text-xl">Turn your favorite music covers into beautiful art</p>
@@ -82,18 +76,15 @@ onMounted(() => {
         Search
       </button>
     </form>
-    <p
-      class="line-clamp-2 w-72 justify-self-center"
-      v-if="previousQuery && !error"
-    >
+    <p class="mx-auto line-clamp-2 max-w-80" v-if="previousQuery && !error">
       Search results for: {{ previousQuery }}
     </p>
-    <p class="line-clamp-2 w-72 justify-self-center" v-if="error">
+    <p class="mx-auto line-clamp-2 max-w-80" v-if="error">
       Uh oh, something went wrong...
     </p>
   </section>
 
-  <section v-if="!previousQuery && !error" class="mx-auto max-w-7xl">
+  <section v-if="!previousQuery && !error" class="mx-auto max-w-7xl pb-8">
     <Carousel />
   </section>
 
@@ -114,10 +105,7 @@ onMounted(() => {
 
   <!-- Album Poster -->
   <div v-if="selectedAlbum">
-    <button
-      class="flex justify-self-center pb-2 leading-5"
-      @click="deselectAlbum"
-    >
+    <button class="mx-auto flex pb-2 leading-5" @click="deselectAlbum">
       <ChevronLeft />
       Back
     </button>

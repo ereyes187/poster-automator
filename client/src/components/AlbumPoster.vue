@@ -51,7 +51,7 @@ function getReadableTextColor(r: number, g: number, b: number) {
 
 <template>
   <div
-    class="justify-self-center shadow-xl"
+    class="max-w-lg justify-self-center shadow-xl"
     :style="{
       backgroundColor: `rgb(${primaryColor})`,
       color: readableTextColor,
@@ -59,8 +59,8 @@ function getReadableTextColor(r: number, g: number, b: number) {
   >
     <div class="relative">
       <img
+        class="h-auto w-auto"
         ref="image"
-        class="max-w-lg"
         @load="onImgLoad"
         :src="props.album.images[0].url"
         crossorigin="anonymous"
@@ -71,7 +71,7 @@ function getReadableTextColor(r: number, g: number, b: number) {
           background: `linear-gradient(to top, rgb(${primaryColor}), rgba(0,0,0,0))`,
         }"
       >
-        <hgroup class="pl-6 text-left text-lg">
+        <hgroup class="pl-6 text-left text-sm md:text-lg">
           <h1 class="font-bold">
             {{ props.album.name }}
           </h1>

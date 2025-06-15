@@ -55,12 +55,14 @@ const toggleMenu = (e: MouseEvent) => {
       :class="{ block: isMenuOpen, hidden: !isMenuOpen }"
     >
       <RouterLink
+        @click="toggleMenu"
         active-class="font-bold text-neutral-800"
         class="navButtons"
         to="/"
         >Home</RouterLink
       >
       <RouterLink
+        @click="toggleMenu"
         active-class="font-bold text-neutral-800"
         class="navButtons"
         to="/contact"
