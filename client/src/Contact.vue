@@ -11,7 +11,7 @@ import MyProfile from "@/assets/images/MyProfile.jpeg";
       />
 
       <hgroup class="space-y-2">
-        <p class="text-3xl">Hi, name is</p>
+        <p class="text-3xl">Hi, my name is</p>
         <h1 class="mb-2 text-4xl font-bold text-neutral-800 md:text-6xl">
           Ernesto Reyes.
         </h1>

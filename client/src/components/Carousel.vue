@@ -75,7 +75,7 @@ function shuffleArray(array) {
   <Carousel
     breakpoint-mode="carousel"
     :mouse-drag="{ threshold: 1 }"
-    :touch-drag="false"
+    :touch-drag="true"
     :gap="20"
     :autoplay="3000"
     :pause-autoplay-on-hover="true"
