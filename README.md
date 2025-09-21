@@ -1,4 +1,4 @@
-# music-poster-generator
+# music-poster-automator
 
 This personal project was inspired by a set of album posters I created for my room using Canva. It’s a journey to challenge myself by learning new technologies while building something innovative and fun.
 
